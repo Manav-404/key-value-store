@@ -1,8 +1,3 @@
-// KVStore - SortedMap<keyname, Entry> - Singleton class
-// Entry - List<Attribute>
-// Attribute - key: string, valueType - Integer, String, Double, Boolean, value: anything
-// AttributeTransformer - adapter design to transform one object to another
-// Searching, Updating, Deleting are common behaviours shared by all objects/attributes - Strategy Design Pattern
 import * as readLine from 'readline';
 import { QueryController } from "./controllers/QueryController";
 import { KVStore } from "./models/KVStore";
