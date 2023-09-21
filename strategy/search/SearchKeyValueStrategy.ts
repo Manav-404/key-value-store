@@ -21,7 +21,11 @@ export class SearchKeyValueStrategy implements SearchStrategy{
                     }    
             }
         }
-        return keys
+        if(keys.length === 0){
+            throw new Error(`${key}:${value} not found`)
+        }
+
+        return keys;
     }
 
 }

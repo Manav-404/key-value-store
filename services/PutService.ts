@@ -12,7 +12,7 @@ export class PutService {
     public put(commands: string[]){
         let attributes = [];
         let key = commands.shift()!;
-        for(let i=0; i<commands.length-2; i+=2){
+        for(let i=0; i<=commands.length-2; i+=2){
             let key = commands[i];
             let value = commands[i+1];
             let valueType = ValueTypeFactory.getValueTypeEnum(value);

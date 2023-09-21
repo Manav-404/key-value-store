@@ -15,23 +15,26 @@ export class QueryController {
         this.deleteService = deleteService;
     }
 
-    public query(fullCommand: string) : string{
+    public query(fullCommand: string) : string | Error{
         let commands = fullCommand.split(' ');
         let commandType = commands.shift();
-        if(commandType === 'search'){
-            return this.searchService.search(commands);
+        try {
+            let response: string | Error = '';
+            if(commandType === 'search'){
+                response = this.searchService.search(commands);
+            }
+    
+            if(commandType === 'put'){
+                this.putService.put(commands);
+            }
+    
+            if(commandType === 'delete'){
+                this.deleteService.delete(commands);
+            }
+    
+            return response;
+        } catch (error: any) {
+            return error;
         }
-
-        if(commandType === 'put'){
-            this.putService.put(commands);
-            return ''
-        }
-
-        if(commandType === 'delete'){
-            this.deleteService.delete(commands);
-            return ''
-        }
-
-        return ''
     }
 }

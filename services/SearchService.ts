@@ -9,7 +9,7 @@ export class SearchService{
         this.searchTransformStrategy = searchTransformStrategy;
     }
 
-    public search(commands: string[]) : string{
+    public search(commands: string[]) : string | Error{
         let key = commands[0];
         let value = commands[1];
         try {
@@ -17,7 +17,7 @@ export class SearchService{
             let transformedValue = this.searchTransformStrategy.transformSearch(keys);
             return transformedValue
         } catch (error: any) {
-            throw new Error(error);
+            return error
         }
 
     }

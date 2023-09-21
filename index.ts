@@ -36,13 +36,11 @@ function processCommands(commands: string[]){
          if(response!==''){
             console.log(response);
          }
-       } catch (error) {
-        console.log(error)
+       } catch (error: any) {
+        console.log(error.message)
        }
     }
-
     process.exit(0)
-
 }
 rl.on('line', function(line){
     if(line === 'exit'){
